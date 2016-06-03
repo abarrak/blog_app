@@ -1,0 +1,12 @@
+<div class="panel">
+  <div class="panel-heading">
+    Commented by: <%= comment.commenter %>
+    <small><%= comment.created_at %></small>    
+  </div>
+  <div class="panel-body"><%= comment.text %>
+    <p>
+    <%= link_to 'delete', [comment.post, comment], method: :delete, 
+                data: { confirm: 'Are you sure?' } %> 
+    </p>
+  </div>
+</div>

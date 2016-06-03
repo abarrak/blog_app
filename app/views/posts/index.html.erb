@@ -1,0 +1,31 @@
+<% provide :title, 'Posts list' %>
+
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+
+    <nav>
+      <ul class="breadcrumb">
+        <li><%= link_to 'Blog', root_path %></li>
+        <li class="active">Posts</li>
+      </ul>
+    </nav>
+
+    <div class="text-right">
+      <%= link_to new_post_path, class: 'btn btn-info' do %>
+         <i class="glyphicon glyphicon-pencil"></i> &nbsp; New
+      <% end %>
+    </div>
+
+    <dl>
+      <% @posts.each do |post| %>      
+        <dt>
+          <h3><%= link_to post.title, post %></h3>
+        </dt>
+        <dd>
+          Submitted: <i><%= time_ago_in_words post.created_at.to_s %></i>
+          <hr />
+        </dd>
+      <% end %>
+    </dl>
+  </div>
+</div>

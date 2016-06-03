@@ -1,0 +1,9 @@
+one:
+  commenter: Ms. 1
+  text: MyString
+  post_id: 1
+
+two:
+  commenter: Ms. 2
+  text: MyString
+  post_id: 1
