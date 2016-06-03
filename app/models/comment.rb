@@ -3,6 +3,6 @@ class Comment < ActiveRecord::Base
   belongs_to :post
 
   # validators
-  validates :commenter, presence: true
-  validates :text, presence: true
+  validates :commenter, presence: true, length: { minimum: 3 }
+  validates :text, presence: true, length: { minimum: 3 }
 end

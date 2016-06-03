@@ -2,7 +2,8 @@ class CommentsController < ApplicationController
   before_action :find_post
 
   def create
-    @comment = @post.comments.build comment_params
+    @comment = Comment.new comment_params
+    @comment.post = @post
     if @comment.save
       flash[:success] = "comment added."
       redirect_to post_path(@post)
@@ -13,7 +14,11 @@ class CommentsController < ApplicationController
 
   def destroy
     @comment = @post.comments.find params[:id]
-    @comment.destroy
+    if @comment.destroy
+      flash[:success] = "comment added."
+    else
+      flash[:danger] = "comment couldn't be deleted."
+    end
     redirect_to post_path(@post)
   end
 

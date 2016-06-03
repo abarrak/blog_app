@@ -1,6 +1,7 @@
-<%= form_for ([@post, @post.comments.build]), html: { class: 'form-horizontal' } do |f| %>
+<%= form_for [@post, @comment ||= Comment.new], html: { class: 'form-horizontal' } do |f| %>
   <fieldset>
     <legend>Add Comment:</legend>
+
     <%= render 'shared/error_messages', object: f.object %>
 
     <div class="form-group">
