@@ -1,6 +1,9 @@
 class PostsController < ApplicationController
   before_action :find_post, only: [:show, :edit, :update, :destroy]
-
+  http_basic_authenticate_with name: 'admin', 
+                               password: '111', 
+                               except: [:index, :show, :search]
+                               
   def index
     @posts = Post.all.order created_at: :desc
   end
@@ -43,6 +46,9 @@ class PostsController < ApplicationController
     redirect_to posts_url
   end
 
+  def search
+  end
+
   private
     
     def find_post
@@ -52,5 +58,4 @@ class PostsController < ApplicationController
     def post_params
       params.require(:post).permit :title, :content
     end
-
 end

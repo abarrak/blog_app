@@ -9,6 +9,6 @@ class SiteStructureTest < ActionDispatch::IntegrationTest
     assert_select 'a[href=?]', root_path, count: 2
 
     get contact_path
-    assert_match /[\w+\-.]+@[a-z\d\-.]+\.[a-z]+/, response.body
+    assert_match /[\w+\-.]+@[a-z\d\-.]+\.[a-z]+/i, response.body
   end
 end

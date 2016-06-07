@@ -9,4 +9,6 @@ class Post < ActiveRecord::Base
   # callbacks
 
   # attributes and logic
+  def self.search phrase
+  end
 end
