@@ -24,4 +24,13 @@ class PostTest < ActiveSupport::TestCase
     @post.content = 'Good to go'
     assert @post.valid?
   end
+
+  test "reject bad words in posts" do
+    @post.title = "go to hell"
+    assert_not @post.valid?
+    @post.content = "damn you"
+    assert_not @post.valid?
+    @post.content = @post.title = "stupid !"
+    assert_not @post.valid?    
+  end
 end

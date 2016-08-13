@@ -1,8 +1,7 @@
 class PostsController < ApplicationController
   before_action :find_post, only: [:show, :edit, :update, :destroy]
-  http_basic_authenticate_with name: 'admin', 
-                               password: '111', 
-                               except: [:index, :show, :search]
+  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_admin!, except: [:index, :show]
                                
   def index
     @posts = Post.all.order created_at: :desc
@@ -29,7 +28,7 @@ class PostsController < ApplicationController
   end
 
   def update
-    if @post.update_attributes(post_params)
+    if @post.update(post_params)
       flash[:success] = "Post was updated successfully."
       redirect_to post_path(@post)
     else

@@ -4,8 +4,10 @@
   </div>
   <div class="panel-body"><%= comment.text %>
     <p>
+    <% if current_user.try :admin? %>
     <%= link_to 'delete', [comment.post, comment], method: :delete, 
                 data: { confirm: 'Are you sure?' } %> 
+    <% end %>
     </p>
   </div>
 </div>

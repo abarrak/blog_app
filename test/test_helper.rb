@@ -6,9 +6,13 @@ require "minitest/reporters"
 Minitest::Reporters.use!(Minitest::Reporters::DefaultReporter.new, ENV, Minitest.backtrace_filter)
 
 class ActiveSupport::TestCase
-  # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
-  fixtures :all
-
   # Add more helper methods to be used by all tests here...
   include ApplicationHelper
+
+  # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
+  fixtures :all
+end
+
+class ActionController::TestCase
+  include Devise::TestHelpers
 end
