@@ -3,7 +3,7 @@ class CommentsController < ApplicationController
   before_action :authenticate_user!
   before_action :authenticate_admin!, only: [:destroy]
 
-  
+
   def create
     @comment = Comment.new comment_params
     @comment.post = @post
@@ -18,7 +18,7 @@ class CommentsController < ApplicationController
   def destroy
     @comment = @post.comments.find params[:id]
     if @comment.destroy
-      flash[:success] = "comment added."
+      flash[:success] = "comment deleted."
     else
       flash[:danger] = "comment couldn't be deleted."
     end

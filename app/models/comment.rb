@@ -13,7 +13,7 @@ class Comment < ActiveRecord::Base
   # custom methods
   private
 
-    def log_destroyed_comments comment
-      puts "commen #{comment} is destroyed as part of deleting its parent post"
-    end    
+    def log_destroyed_comments
+      puts "commen #{self} is destroyed as part of deleting its parent post"
+    end
 end
