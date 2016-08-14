@@ -1,4 +1,5 @@
 ## Blog App
+[![Build Status](https://travis-ci.org/abarrak/blog_app.svg?branch=master)](https://travis-ci.org/abarrak/blog_app)
 
 A simple bolg enigne.
 
